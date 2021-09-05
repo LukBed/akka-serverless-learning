@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package learning.domain;
+
+import "akkaserverless/annotations.proto";
+
+option java_outer_classname = "TankDomain";
+
+option (akkaserverless.file).value_entity = {
+  name: "Tank"
+  entity_type: "tank"
+  state: "TankState"
+};
+
+message TankState {
+  string name = 1;
+  string nationality = 2;
+  string tank_type = 3;
+}

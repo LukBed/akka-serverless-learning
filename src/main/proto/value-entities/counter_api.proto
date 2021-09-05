@@ -44,7 +44,6 @@ service CounterService {
     };
   }
 
-
   rpc Decrease(DecreaseValue) returns (google.protobuf.Empty) {
     option (google.api.http) = {
       post: "/counter/{counter_id}/decrease"

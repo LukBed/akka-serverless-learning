@@ -1,0 +1,59 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+import "akkaserverless/annotations.proto";
+import "google/api/annotations.proto";
+
+package learning;
+
+option java_outer_classname = "TankApi";
+
+message UpsertTank {
+  string tank_id = 1 [(akkaserverless.field).entity_key = true];
+  string name = 2;
+  string nationality = 3;
+  string tank_type = 4;
+}
+
+message RenameTank {
+  string tank_id = 1 [(akkaserverless.field).entity_key = true];
+  string name = 2;
+}
+
+message GetTank {
+  string tank_id = 1 [(akkaserverless.field).entity_key = true];
+}
+
+message FoundTank {
+  string tank_id = 1;
+  string name = 2;
+  string nationality = 3;
+  string tank_type = 4;
+}
+
+service TankService {
+  option (akkaserverless.service) = {
+    type : SERVICE_TYPE_ENTITY
+    component : ".domain.Tank"
+  };
+
+  rpc Upsert (UpsertTank) returns (FoundTank) {
+    option (google.api.http) = {
+      post: "/tank/{tank_id}"
+      body: "*"
+    };
+  }
+
+  rpc Rename (RenameTank) returns (FoundTank) {
+    option (google.api.http) = {
+      post: "/tank/{tank_id}/rename"
+      body: "*"
+    };
+  }
+
+  rpc Find (GetTank) returns (FoundTank) {
+    option (google.api.http) = {
+      get: "/tank/{tank_id}"
+    };
+  }
+}
