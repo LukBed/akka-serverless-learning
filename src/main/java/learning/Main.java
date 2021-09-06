@@ -6,6 +6,8 @@
 package learning;
 
 import com.akkaserverless.javasdk.AkkaServerless;
+import learning.domain.CityDomain;
+import learning.domain.CityEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -19,7 +21,12 @@ public final class Main {
         // This withGeneratedComponentsAdded wrapper automatically registers any generated Actions, Views or Entities,
         // and is kept up-to-date with any changes in your protobuf definitions.
         // If you prefer, you may remove this wrapper and manually register these components.
-        withGeneratedComponentsAdded(new AkkaServerless());
+        withGeneratedComponentsAdded(new AkkaServerless())
+                .registerEventSourcedEntity(
+                        CityEntity.class,
+                        CityApi.getDescriptor().findServiceByName("CityService"),
+                        CityDomain.getDescriptor())
+            ;
     
     public static void main(String[] args) throws Exception {
         LOG.info("starting the Akka Serverless service");

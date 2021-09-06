@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package learning.domain;
+
+option java_outer_classname = "CityDomain";
+
+import "akkaserverless/annotations.proto";
+
+message CityCreated {
+  string name = 1;
+}
+
+message NextTour {
+}
+
+message CityLeveledUp {
+  int32 take_gold = 1;
+}
+
+message CreaturesLeveledUp {
+  int32 take_gold = 1;
+}
+
+message CityRenamed {
+  string name = 1;
+}
+
+message CityState {
+  string name = 1;
+  bool active = 2;
+  int32 gold = 3;
+  int32 city_level = 4;
+  int32 creatures_level = 5;
+}

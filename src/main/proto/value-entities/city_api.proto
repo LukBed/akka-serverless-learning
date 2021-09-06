@@ -1,0 +1,104 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+import "akkaserverless/annotations.proto";
+import "google/api/annotations.proto";
+
+package learning;
+
+option java_outer_classname = "CityApi";
+
+message CreateCityCommand {
+  string city_id = 1 [(akkaserverless.field).entity_key = true];
+  string name = 2;
+}
+
+message NextTourCommand {
+  string city_id = 1 [(akkaserverless.field).entity_key = true];
+}
+
+message BuildCityLevelCommand {
+  string city_id = 1 [(akkaserverless.field).entity_key = true];
+}
+
+message BuildCreaturesCommand {
+  string city_id = 1 [(akkaserverless.field).entity_key = true];
+}
+
+message RenameCityCommand {
+  string city_id = 1 [(akkaserverless.field).entity_key = true];
+  string name = 2;
+}
+
+message GetCityQuery {
+  string city_id = 1 [(akkaserverless.field).entity_key = true];
+}
+
+message FoundCity {
+  string city_id = 1;
+  string name = 2;
+  int32 gold = 3;
+  int32 city_level = 4;
+  int32 creatures_level = 5;
+}
+
+service CityService {
+  rpc CreateCity(CreateCityCommand) returns (google.protobuf.Empty) {
+    option (akkaserverless.method).eventing.in = {
+      event_sourced_entity: "city-entity";
+    };
+    option (google.api.http) = {
+      post: "/city/{city_id}"
+      body: "*"
+    };
+  }
+
+  rpc GetCity(GetCityQuery) returns (FoundCity) {
+    option (akkaserverless.method).eventing.in = {
+      event_sourced_entity: "city-entity";
+    };
+    option (google.api.http) = {
+      get: "/city/{city_id}"
+    };
+  }
+
+  rpc ExecuteNextTour(NextTourCommand) returns (google.protobuf.Empty) {
+    option (akkaserverless.method).eventing.in = {
+      event_sourced_entity: "city-entity";
+    };
+    option (google.api.http) = {
+      post: "/city/{city_id}/tour"
+      body: "*"
+    };
+  }
+
+  rpc BuildCityLevel(BuildCityLevelCommand) returns (google.protobuf.Empty) {
+    option (akkaserverless.method).eventing.in = {
+      event_sourced_entity: "city-entity";
+    };
+    option (google.api.http) = {
+      post: "/city/{city_id}/level"
+      body: "*"
+    };
+  }
+
+  rpc BuildCreatures(BuildCreaturesCommand) returns (google.protobuf.Empty) {
+    option (akkaserverless.method).eventing.in = {
+      event_sourced_entity: "city-entity";
+    };
+    option (google.api.http) = {
+      post: "/city/{city_id}/creatures"
+      body: "*"
+    };
+  }
+
+  rpc RenameCity(RenameCityCommand) returns (google.protobuf.Empty) {
+    option (akkaserverless.method).eventing.in = {
+      event_sourced_entity: "city-entity";
+    };
+    option (google.api.http) = {
+      post: "/city/{city_id}/rename"
+      body: "*"
+    };
+  }
+}
