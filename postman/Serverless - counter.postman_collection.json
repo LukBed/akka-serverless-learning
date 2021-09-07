@@ -1,0 +1,139 @@
+{
+	"info": {
+		"_postman_id": "af1ed828-520f-49f4-98c6-d30bc7b846f4",
+		"name": "Serverless - counter",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get counter",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"value\": 30\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dry-pine-7621.us-east1.akkaserverless.app/counter/abc",
+					"protocol": "https",
+					"host": [
+						"dry-pine-7621",
+						"us-east1",
+						"akkaserverless",
+						"app"
+					],
+					"path": [
+						"counter",
+						"abc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Increase counter",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"value\": 11\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dry-pine-7621.us-east1.akkaserverless.app/counter/abc/increase",
+					"protocol": "https",
+					"host": [
+						"dry-pine-7621",
+						"us-east1",
+						"akkaserverless",
+						"app"
+					],
+					"path": [
+						"counter",
+						"abc",
+						"increase"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Decrease counter",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"value\": 2\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dry-pine-7621.us-east1.akkaserverless.app/counter/abc/decrease",
+					"protocol": "https",
+					"host": [
+						"dry-pine-7621",
+						"us-east1",
+						"akkaserverless",
+						"app"
+					],
+					"path": [
+						"counter",
+						"abc",
+						"decrease"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reset",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dry-pine-7621.us-east1.akkaserverless.app/counter/abc/reset",
+					"protocol": "https",
+					"host": [
+						"dry-pine-7621",
+						"us-east1",
+						"akkaserverless",
+						"app"
+					],
+					"path": [
+						"counter",
+						"abc",
+						"reset"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

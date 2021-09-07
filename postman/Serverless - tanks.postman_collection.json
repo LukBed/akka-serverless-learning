@@ -1,0 +1,106 @@
+{
+	"info": {
+		"_postman_id": "029f1cbd-abd0-4151-8f5f-ea76a23adecb",
+		"name": "Serverless - tanks",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get tank",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"value\": 30\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dry-pine-7621.us-east1.akkaserverless.app/tank/pziv",
+					"protocol": "https",
+					"host": [
+						"dry-pine-7621",
+						"us-east1",
+						"akkaserverless",
+						"app"
+					],
+					"path": [
+						"tank",
+						"pziv"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Upsert tank",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Panzer IV/V\",\n    \"nationality\": \"DE\",\n    \"tank_type\": \"medium tank\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dry-pine-7621.us-east1.akkaserverless.app/tank/pziv",
+					"protocol": "https",
+					"host": [
+						"dry-pine-7621",
+						"us-east1",
+						"akkaserverless",
+						"app"
+					],
+					"path": [
+						"tank",
+						"pziv"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Rename tank",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Panzer IV auf. A\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dry-pine-7621.us-east1.akkaserverless.app/tank/pziv/rename",
+					"protocol": "https",
+					"host": [
+						"dry-pine-7621",
+						"us-east1",
+						"akkaserverless",
+						"app"
+					],
+					"path": [
+						"tank",
+						"pziv",
+						"rename"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

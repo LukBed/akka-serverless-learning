@@ -1,0 +1,190 @@
+{
+	"info": {
+		"_postman_id": "79796c2d-f4e1-4c2e-8a03-5ca29658fee2",
+		"name": "Serverless - city",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get city",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://dry-pine-7621.us-east1.akkaserverless.app/city/morgul",
+					"protocol": "https",
+					"host": [
+						"dry-pine-7621",
+						"us-east1",
+						"akkaserverless",
+						"app"
+					],
+					"path": [
+						"city",
+						"morgul"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Osgiliath\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dry-pine-7621.us-east1.akkaserverless.app/city/morgul",
+					"protocol": "https",
+					"host": [
+						"dry-pine-7621",
+						"us-east1",
+						"akkaserverless",
+						"app"
+					],
+					"path": [
+						"city",
+						"morgul"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Next tour",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dry-pine-7621.us-east1.akkaserverless.app/city/morgul/tour",
+					"protocol": "https",
+					"host": [
+						"dry-pine-7621",
+						"us-east1",
+						"akkaserverless",
+						"app"
+					],
+					"path": [
+						"city",
+						"morgul",
+						"tour"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Build city",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dry-pine-7621.us-east1.akkaserverless.app/city/morgul/level",
+					"protocol": "https",
+					"host": [
+						"dry-pine-7621",
+						"us-east1",
+						"akkaserverless",
+						"app"
+					],
+					"path": [
+						"city",
+						"morgul",
+						"level"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Build creatures",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dry-pine-7621.us-east1.akkaserverless.app/city/morgul/creatures",
+					"protocol": "https",
+					"host": [
+						"dry-pine-7621",
+						"us-east1",
+						"akkaserverless",
+						"app"
+					],
+					"path": [
+						"city",
+						"morgul",
+						"creatures"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Rename",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Minas Morgul\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dry-pine-7621.us-east1.akkaserverless.app/city/morgul/rename",
+					"protocol": "https",
+					"host": [
+						"dry-pine-7621",
+						"us-east1",
+						"akkaserverless",
+						"app"
+					],
+					"path": [
+						"city",
+						"morgul",
+						"rename"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
